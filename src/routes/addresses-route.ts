@@ -4,14 +4,13 @@ import { addresses } from "../db"
 export const addressesRoute = Router({})
 
 addressesRoute.get('/', (req: Request, res: Response) => {
-    if (req.query.value) {
-      let searchValue = req.query.value.toString()
-      res.send(addresses.filter(a => a.value.indexOf(searchValue) > -1))
-    } else {
-      res.send(addresses)
-    }
+  if (req.query.value) {
+    let searchValue = req.query.value.toString()
+    res.send(addresses.filter(a => a.value.indexOf(searchValue) > -1))
+  } else {
+    res.send(addresses)
   }
-)
+})
 
 addressesRoute.get('/:id', (req: Request, res: Response) => {
   let addr = addresses.find(a => a.id === +req.params.id)
@@ -22,8 +21,6 @@ addressesRoute.get('/:id', (req: Request, res: Response) => {
     res.send(404)
   }
 })
-
-
 
 addressesRoute.delete('/:id', (req: Request, res: Response) => {
   for (let i = 0; i < addresses.length; i++) {
