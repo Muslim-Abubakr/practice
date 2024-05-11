@@ -3,7 +3,6 @@ import { addresses } from "../db"
 
 export const addressesRoute = Router({})
 
-
 addressesRoute.get('/', (req: Request, res: Response) => {
     if (req.query.value) {
       let searchValue = req.query.value.toString()
@@ -35,8 +34,6 @@ addressesRoute.delete('/:id', (req: Request, res: Response) => {
     }
   }
 })
-
-
 
 addressesRoute.post('/', (req: Request, res: Response) => {
   const newAddresses = {

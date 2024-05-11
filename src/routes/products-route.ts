@@ -3,7 +3,6 @@ import { products } from "../db"
 
 export const productsRoute = Router({})
 
-
 productsRoute.get('/', (req: Request, res: Response) => {
     if (req.query.title) {
       let searchString = req.query.title.toString()
